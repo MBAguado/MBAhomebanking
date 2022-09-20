@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MBA | Home Bamking | Home</title>
+<!-- link para q agarre las media queries -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Edu+QLD+Beginner:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&family=Square+Peg&family=Water+Brush&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <section class="s2Index">
+    </section>
+    <div id="app">
+        <header>
+            <p class="welcome" v-model="clients">Welcome {{clients.firstName}}!</p>
+            <img class="logo" src="./assets/logoMBA.png" alt="">
+            <h1 class="titleHome">Home Banking</h1>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navHome" href="./index.html">Home</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-nav"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./accounts.html">My Accounts</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./cards.html">My Cards</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./loan-application.html">My Loans</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="#">My Transfers</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" @click="logOut">Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+        </header>
+        <main class="container-sm container-md container-lg container-xl mainTranfers d-flex">
+            <div class="m-4">
+                <div class="">
+                    <h2 class="titleSection m-2 animate__animated animate__backInDown">My Transfers</h2>
+                    <h6 class="m-4 titleSection">Where do you want to transfer?</h6>
+                </div>
+
+                <div class="m-3 d-flex">
+                    <a href="#" class="btn btn-outline-light m-4" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Own account</a>
+                    <a href="#" class="btn btn-outline-light m-4" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">Transfers to third</a>
+                </div>
+            </div>
+            <section>
+                <!------  Modal para hacer "seguro de la transferencia?"--------->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title titleSection" id="staticBackdropLabel">Transfer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Sure to make the transfer?</p>
+                                <p class="card-text"> From your account {{originAccount}}</p>
+                                <p class="card-text"> To the destination account {{destinyAccount}}</p>
+                                <p class="card-text"> The amount of $ {{amountTransfer}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button @click="newTransfer" type="button" class="btn btn-primary">Continue
+                                    Transfer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------------------------------->
+                {{getIdAccount}}
+                <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body1">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 col-lg-10">
+                                        <div class="wrap d-md-flex">
+                                            <div class="img" style="background-image: url(assets/fondo0.jpg);">                                         </div>
+                                            <div class="login-wrap p-4 p-md-5">
+                                                <div>
+                                                    <div class="w-100">
+                                                        <h3 class="mb-4 titleSection">Transfer to own account</h3>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h6>From which account are you transferring? </h6>
+
+                                                            <select v-model="originAccount">
+                                                                <option disabled value="">Please select one</option>
+                                                                <option v-for="account in accounts">{{account.number}}</option>
+                                                            </select>
+
+                                                            <h6>Which account do you want to transfer to?</h6>
+
+                                                            <select v-model="destinyAccount">
+                                                                <option disabled value="">Please select one</option>
+                                                                <option v-for="account in accounts"
+                                                                    v-show="account.number !== originAccount">
+                                                                    {{account.number}}
+                                                                </option>
+                                                            </select>
+
+                                                            <h6>enter the amount to transfer</h6>
+                                                            <input v-model="amountTransfer" class="form-control"
+                                                                type="number" placeholder="amount number"
+                                                                aria-label="default input example">
+
+                                                            <h6>Transfer description </h6>
+                                                            <input v-model="description" class="form-control"
+                                                                type="text" placeholder="Description"
+                                                                aria-label="default input example">
+
+
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">Transfer </button>
+
+                                                            <!-- Modal -->
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <form action="#" class="signin-form">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade modal-lg" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-body1">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 col-lg-10">
+                                        <div class="wrap d-md-flex">
+                                            <div class="img" style="background-image: url(assets/fondo0.jpg);">
+                                            </div>
+                                            <div class="login-wrap p-4 p-md-5">
+                                                <div>
+                                                    <div class="w-100">
+                                                        <h3 class="mb-4 titleSection">Transfer to third</h3>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h6>From which account are you transferring? </h6>
+
+                                                            <select v-model="originAccount">
+                                                                <option disabled value="">Please select one</option>
+                                                                <option v-for="account in accounts">{{account.number}}
+                                                                </option>
+                                                            </select>
+
+                                                            <h6>Enter the account to transfer</h6>
+                                                            <input v-model="destinyAccount" class="form-control"
+                                                                type="text" placeholder="Account number"
+                                                                aria-label="default input example">
+
+                                                            <h6>enter the amount to transfer</h6>
+                                                            <input v-model="amountTransfer" class="form-control"
+                                                                type="number" placeholder="Amount number"
+                                                                aria-label="default input example">
+
+                                                            <h6>Transfer description </h6>
+                                                            <input v-model="description" class="form-control"
+                                                                type="text" placeholder="Description"
+                                                                aria-label="default input example">
+                                                          
+                                                                <button type="button" class="btn btn-primary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#staticBackdrop">Transfer </button>
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <form action="#" class="signin-form">
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+        </footer>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./transfers.js"></script>
+    <!-- Script para Alerts -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+
+</html>

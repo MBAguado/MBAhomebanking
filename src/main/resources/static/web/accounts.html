@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MBA | Home Bamking | Home</title>
+
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+ 
+        <!-- link para q agarre las media queries -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Edu+QLD+Beginner:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&family=Square+Peg&family=Water+Brush&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <section class="s2Index">
+    </section>
+    <div id="app">
+        <header>
+            <p class="welcome" v-model="clients">Welcome {{clients.firstName}}!</p>
+            <img class="logo" src="./assets/logoMBA.png" alt="">
+            <h1 class="titleHome">Home Banking</h1>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navHome" href="./home.html">Home</a>
+                    <button class="navbar-toggler bg-warning text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-nav"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-dark text-secondary" id="navbarNav">
+                        <ul class="navbar-nav">
+
+                            <li class="navLi">
+                                <a class="navA nav-link" href="#">My Accounts</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./cards.html">My Cards</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./loan-application.html">My Loans</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./transfers.html">My Transfers</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" @click="logOut">Log Out</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main1">
+          <section class="mainA">
+            <h2 class="animate__animated animate__backInDown">My Accounts</h2>
+            <h5>Would you like to create a new account?</h5>
+            <button @click="createAccount" type="button" class="m-2 btn btn-outline-light">Create
+             Account</button>     
+              
+             <div class="divVin">
+                    <div class="divVinHijo" v-for="account in accounts" >
+                      <h5 class="card-title">{{account.number}}</h5>
+                      <p class="card-text">Balance:$ {{account.balance}}</p>
+                      <a type="button" :href="'./account.html?id='+account.id" class="btn btn-outline-light m-1">More...</a>
+                    </div>
+            </div>      
+          </section>
+          <section class="mainB">
+            <h2 class="animate__animated animate__backInDown">My Loans</h2>
+            <h5 class="subtitleSection">would you like to generate a loan?</h5>
+            <a type="button" href="./loan-application.html" class="btn btn-outline-light m-1">Create
+                Loans</a>
+          </section>
+
+        </main>
+     <!-- 
+          <main class="d-flex mainAccounts">            
+                <div class="">
+                    <h2 class="titleSection m-3 animate__animated animate__backInDown">My Accounts</h2>
+                    <h6 class="subtitleSection m-2">Would you like to create a new account?</h6>
+                    <button @click="createAccount" type="button" class="m-2 btn btn-outline-light">Create
+                        Account</button>
+
+                    <div class="sectionCard">
+                        <div v-for="account in accounts" class="card flex-column" style="height: 8rem;" >
+                            <div class="card-header">{{account.number}} </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Balance:$ {{account.balance}}</li>
+                                <a :href="'./account.html?id='+account.id" class=" m-1 stretched-link">More...</a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-sm container-md">
+                    <h2 class=" titleSection m-3 animate__animated animate__backInDown">My Loans</h2>
+                    <h6 class="subtitleSection m-2">would you like to generate a loan?</h6>
+                    <a type="button" href="./loan-application.html" class="btn btn-outline-light m-1">Create
+                        Loans</a>
+                </div>
+            
+        </main>  -->
+        <footer>
+
+        </footer>
+    </div>
+
+
+
+
+<!--     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./accounts.js"></script>
+
+    <!-- Script para Alerts -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

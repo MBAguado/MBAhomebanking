@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MBA | Home Bamking | Home</title>
+
+    <!-- link para q agarre las media queries -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Edu+QLD+Beginner:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&family=Square+Peg&family=Water+Brush&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <section class="s2Index">
+    </section>
+    <div id="app">
+        <header>
+            <p class="welcome" v-model="clients">Welcome {{clients.firstName}}!</p>
+            <img class="logo" src="./assets/logoMBA.png" alt="">
+            <h1 class="titleHome">Home Banking</h1>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navHome" href="./home.html">Home</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-nav"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./accounts.html">My Accounts</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./cards.html">My Cards</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./loan-application.html">My Loans</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" href="./transfers.html">My Transfers</a>
+                            </li>
+                            <li class="navLi">
+                                <a class="navA nav-link" @click="logOut">Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="mainCards">
+
+            <div class="m-5">
+                <h2 class="titleSection m-4 titleSection m-2 animate__animated animate__backInDown">My Cards</h2>
+                <h7 class="titleSection m-4 titleSection m-2 animate__animated animate__backInDown">Generate new card
+                </h7>
+
+                <div>Selected: {{ selectedColor }}</div>
+                <select class="selectedCard" v-model="selectedColor">
+                    <option disabled value="">Please select one</option>
+                    <option>SILVER</option>
+                    <option>TITANIUM</option>
+                    <option>GOLD</option>
+                </select>
+
+                <div>Selected: {{ selectedType }}</div>
+                <select class="selectedCard" v-model="selectedType">
+                    <option disabled value="">Please select one</option>
+                    <option>DEBIT</option>
+                    <option>CREDIT</option>
+                </select>
+
+                <button @click="createCards" type="button" class="m-2 btn btn-outline-light">Create</button>
+                
+            </div>
+     
+            <div class="generatorCards">
+
+                <div class="m-4 card cardFondo" v-for="card in cardFilter">
+                    <div :class="card.cardType=='DEBIT'?'card__part':'card__part2' " class="card__front ">
+                        <img class="" src="./assets/chipCard.ico">
+                        <img class="card__front-square card__square" src="./assets/logoMBA.png">
+                        <div class="">
+                            <span class="labelCredDeb">{{card.cardType}}</span>
+                            <span class="labelCredDeb m-3">{{card.cardColor}}</span>
+                        </div>
+                        <img class="card__front-logo card__logo" src="./assets/logoVisa.png">
+                        <p class="card_numer">{{card.number}}</p>
+
+                        <div class="card__space-75">
+                            <span class="card__label">Card holder</span>
+                            <p class="card__info">{{card.cardHolder}}</p>
+                        </div>
+                        <div class="card__space-25">
+                            <span class="card__label">Expires</span>
+                            <p class="card__info">{{newDate(card.thruDate)}}</p>
+                        </div>
+                    </div>
+                    <div :class="card.cardType=='DEBIT'?'card__back':'card__back2'" class="card__part card__back">
+                        <div class="card__black-line"></div>
+                        <div class="card__back-content">
+                            <div class="card__secret">
+                                <p class="card__secret--last">{{card.cvv}}</p>
+                            </div>
+                            <img class="card__back-square card__square" src="./assets/logoLink.png">
+                            <img class="card__back-logo card__logo" src="./assets/logoBanelco.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./create-card.js"></script>
+
+</body>
+
+</html>

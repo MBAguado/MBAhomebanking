@@ -1,0 +1,583 @@
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #020829;
+}
+
+/* Para poner en color rojo/verde según q tipo de transaccion es */
+.debit {
+    color: red;
+}
+
+.credit {
+    color: rgb(2, 134, 2);
+}
+
+/* Header */
+.navBar {
+    background-color: #1f080100;
+}
+
+.navHome {
+    text-decoration: none;
+    color: rgb(243, 202, 202);
+}
+
+.navHome :hover {
+    color: rgb(243, 202, 202);
+    background-color: rgba(255, 0, 0, 0.219);
+    border-radius: 50%;
+}
+
+.navA {
+    color: rgb(243, 202, 202);
+}
+
+.navLi :hover {
+    color: rgb(243, 202, 202);
+    background-color: rgba(255, 0, 0, 0.219);
+    border-radius: 50%;
+}
+
+header {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(19, 17, 18, 255) 15%, rgb(44, 35, 75));
+
+}
+
+.headerIndex {
+    background-image: url(./assets/fondo6.jpg);
+}
+
+.logo {
+    width: 11vw;
+}
+
+.titleHome {
+    font-family: 'Cinzel', serif;
+    color: rgba(6, 70, 126, 255);
+}
+
+.botonInicio {
+    border: none;
+    background-color: rgba(255, 217, 0, 0);
+}
+
+.botonInicio img {
+    width: 50px;
+    margin-left: 1rem;
+}
+
+/*TODOS LOS MAINS */
+.mainIndex {
+    background-color: whitesmoke;
+    /*     min-height: 80vh; */
+}
+
+/* estilos para Accounts */
+.main1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-image: url(./assets/fondo2.jpg);
+    height: 80vh;
+    width: 100%;
+}
+
+.mainA {
+    width: 50vh;
+    margin-left: 3rem;
+}
+
+.mainB {
+    width: 50vh;
+    margin-left: 1rem;
+}
+
+.divVin {
+    display: flex;
+    background-color: #a4a6bb9f;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 5%;
+    justify-content: center;
+}
+
+.divVinHijo {
+    background-color: #3030302d;
+    border-radius: 5%;
+    margin: 1rem;
+}
+
+.divAccount{
+    padding: 2rem;
+    width: 70vw;
+}
+
+.mainAccount {
+    min-height: 80vh;
+    display: flex;
+    background-image: url(./assets/fondo2.jpg);
+}
+
+.cardAccount {
+    width: 10rem;
+    height: 10rem;
+}
+
+.mainCards {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 80vh;
+    background-image: url(./assets/fondo3.jpg);
+}
+
+.generatorCards {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.mainLoansApp {
+
+    min-height: 80vh;
+    background-image: url(./assets/fondo3.jpg);
+}
+
+.mainTranfers {
+    min-height: 80vh;
+    display: flex;
+    background-image: url(./assets/fondo7.png);
+}
+
+.s2Index {
+    min-height: 8vh;
+    display: flex;
+    background-image: url(./assets/fondo6.jpg);
+}
+
+.welcome {
+    color: #dfc0c0;
+    margin-top: 1rem;
+    background-color: rgb(4, 134, 91);
+    padding: 0.2rem;
+    border-radius: 3rem;
+}
+
+.imgCarousel {
+    height: 55vh;
+    object-fit: cover;
+    width: 100%;
+}
+
+.imgIconoIndex {
+    height: 9vh;
+    width: 4vw;
+}
+
+.cardIndex {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    margin: 2rem;
+}
+
+.subTitleIndex {
+    justify-self: center;
+    font-family: 'Cinzel', serif;
+    color: rgba(6, 70, 126, 255);
+}
+
+.sectionIndex3 {
+    /*    background-image: url(./assets/fondoSection2.png);
+    min-height: 70vh;
+    */
+}
+
+
+/* Tarjetas Deb/Cre */
+.labelCredDeb {
+    color: rgb(228, 176, 8);
+    font-size: 10px;
+}
+
+/* Boton para cards VIN */
+.btn {
+    background-color: rgba(14, 4, 51, 0.616);
+    color: rgb(48, 11, 11);
+}
+
+.titleSection {
+    font-family: 'Cinzel', serif;
+    color: rgba(6, 70, 126, 255);
+}
+
+.subtitleSection {
+    color: rgba(6, 70, 126, 255);
+}
+
+.s1 {
+    width: 80%;
+    display: flex;
+    margin: 4rem;
+}
+
+.card-body {
+    background-color: rgba(248, 245, 245, 0.877);
+}
+
+.cardVIN {
+    width: 15rem;
+
+    margin: 2rem;
+    background: rgba(14, 4, 51, 0.616);
+    box-shadow: 0 8px 32px rgba(14, 4, 51, 0.616);
+    border-radius: 10px;
+}
+
+.myLoansAccounts {
+    margin: 5rem;
+    width: 50%;
+}
+
+.cardTransaction {
+    background-color: rgb(245, 245, 245);
+    margin: 2rem;
+    padding: 1rem;
+}
+
+/* STYLE credit/debit CARDS */
+.card {
+    width: 320px;
+    height: 190px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardFondo {
+    background-color: #00020800;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
+
+.card__part {
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    width: 320px;
+    height: 190px;
+    background-image: linear-gradient(to right bottom, #010b64, rgb(216, 184, 2));
+    /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card__part2 {
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    width: 320px;
+    height: 190px;
+    background-image: linear-gradient(to right bottom, #020949, rgb(206, 205, 198));
+    /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card__front {
+    padding: 18px;
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+}
+
+.card__back {
+    padding: 18px 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    background-color: #04506900;
+}
+
+.card__back2 {
+    padding: 18px 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    background-image: linear-gradient(to right bottom, #020949, rgb(126, 125, 125), rgb(92, 88, 66));
+}
+
+.card__black-line {
+    margin-top: 5px;
+    height: 38px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 25px;
+}
+
+.card__front-logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+.card__square {
+    border-radius: 5px;
+    height: 35px;
+}
+
+.card_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card__space-75 {
+    width: 75%;
+    float: left;
+}
+
+.card__space-25 {
+    width: 25%;
+    float: left;
+}
+
+.card__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.card__info {
+
+    font-size: 10px;
+    line-height: 18px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.card__back-content {
+    padding: 15px 15px 0;
+}
+
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.card__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position: relative;
+}
+
+.card__secret:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: calc(100% + 6px);
+    width: calc(100% - 42px);
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.card__back-square {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.card:hover .card__front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+.card:hover .card__back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+
+.selectedCard {
+    background-color: #e0dcdc;
+    border-radius: 0.5rem;
+}
+
+/* Fin style tarjetas cred/deb */
+
+footer {
+    background: linear-gradient(185deg, rgba(19, 17, 18, 255) 15%, rgb(44, 35, 75));
+    color: rgb(243, 202, 202);
+    /*     min-height: 10vh; */
+}
+
+.imagencita img {
+    width: 2rem;
+    margin: 0.3rem;
+}
+
+.buttonSend {
+    background-color: rgb(42, 116, 165);
+    font-size: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+/* STYLE PARA PAG. INDEX  */
+
+.mainSingIn {
+    background-image: url(./assets/fondo6.jpg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.padreSignIn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 45vw;
+    height: 70vh;
+    background-color: #aaa3a3e5;
+    border-radius: 3rem;
+}
+
+.signIn {
+    width: 20vw;
+    height: 30vh;
+
+}
+
+.titleSingIn {
+    font-family: 'Cinzel', serif;
+    color: rgba(6, 70, 126, 255);
+    font-size: 20px;
+
+}
+
+
+/* Styles para hoja de create-card */
+
+.classNewCard {
+    margin-left: 3rem;
+
+}
+
+/* Style para hoja de transfer.html */
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.568);
+}
+
+.modal-body1 {
+    background-image: url(./assets/modal.jpg);
+}
+
+/* Estilos para hoja de Loans */
+.myLoans {
+    background-color: #aaa3a3;
+    width: 65%;
+    margin: 3rem;
+    display: flex;
+}
+
+/* MEDIAS QUERIES */
+
+@media screen and (max-width: 720px) {
+    .main1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-image: url(./assets/fondo2.jpg);
+       height: 100%;
+        width: 100%;
+    }
+
+    .mainA {
+        width: 100%;
+        margin-left: 0;
+    }
+    .mainB {
+        width: 100%;
+        margin-left: 0;
+    }  
+    
+    .divVin{
+        flex-direction: column;
+    }
+    .divVinHijo {
+        background-color: #a110102d;           
+    }
+        .divVinHijo, h5{
+        font-size: 15px;
+    }
+
+}
